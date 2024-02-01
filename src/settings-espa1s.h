@@ -35,8 +35,8 @@
 
     // I2C-configuration (necessary for RC522 [only via i2c - not spi!] or port-expander)
     #ifdef I2C_2_ENABLE
-        #define ext_IIC_CLK                 23          // i2c-SCL (clock) [14 pin-header]
-        #define ext_IIC_DATA                18          // i2c-SDA (data) [14 pin-header]
+        #define ext_IIC_CLK                 18          // i2c-SCL (clock) [14 pin-header]
+        #define ext_IIC_DATA                5          // i2c-SDA (data) [14 pin-header]
     #endif
 
     // I2S (DAC)
@@ -70,8 +70,8 @@
     #define PREVIOUS_BUTTON                 13          // Button 1: GPIO to detect previous
     #define PAUSEPLAY_BUTTON                19          // Button 2: GPIO to detect pause/play
     #define ROTARYENCODER_BUTTON            23          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
-    #define BUTTON_4                        18          // Button 4: unnamed optional button
-    #define BUTTON_5                        5           // Button 5: unnamed optional button
+    #define BUTTON_4                        99          // 18Button 4: unnamed optional button
+    #define BUTTON_5                        99           // 5Button 5: unnamed optional button
 
     #define BUTTONS_LED                   99         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
 
