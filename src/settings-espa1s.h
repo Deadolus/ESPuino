@@ -40,9 +40,10 @@
     #endif
 
     // I2S (DAC)
-    #define I2S_DOUT                        25          // Digital out (I2S)
+    #define I2S_DOUT                        26          // Digital out (I2S)
     #define I2S_BCLK                        27          // BCLK (I2S)
-    #define I2S_LRC                         26          // LRC (I2S)
+    #define I2S_LRC                         25          // LRC (I2S)
+    #define I2S_MCLK       0
 
     // I2C (AC101)
     #define IIC_CLK                         32          // internal
@@ -59,14 +60,20 @@
     #endif
 
     // Control-buttons (set to 99 to DISABLE; 0->39 for GPIO; 100->115 for port-expander)
-    #define NEXT_BUTTON                     99          // Button 0: GPIO to detect next
-    #define PREVIOUS_BUTTON                 99          // Button 1: GPIO to detect previous
-    #define PAUSEPLAY_BUTTON                36          // Button 2: GPIO to detect pause/play
-    #define ROTARYENCODER_BUTTON            99          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
-    #define BUTTON_4                        99          // Button 4: unnamed optional button
-    #define BUTTON_5                        99          // Button 5: unnamed optional button
+    //#define PAUSEPLAY_BUTTON                36          // Button 2: GPIO to detect pause/play
+    //#define NEXT_BUTTON                     13          // Button 0: GPIO to detect next
+    //#define PREVIOUS_BUTTON                 23          // Button 1: GPIO to detect previous
+    //#define ROTARYENCODER_BUTTON            19          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
+    //#define BUTTON_4                        18          // Button 4: unnamed optional button
+    //#define BUTTON_5                        5           // Button 5: unnamed optional button
+    #define NEXT_BUTTON                     36          // Button 0: GPIO to detect next
+    #define PREVIOUS_BUTTON                 13          // Button 1: GPIO to detect previous
+    #define PAUSEPLAY_BUTTON                19          // Button 2: GPIO to detect pause/play
+    #define ROTARYENCODER_BUTTON            23          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
+    #define BUTTON_4                        18          // Button 4: unnamed optional button
+    #define BUTTON_5                        5           // Button 5: unnamed optional button
 
-    //#define BUTTONS_LED                   114         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
+    #define BUTTONS_LED                   99         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
 
     // Channels of port-expander can be read cyclic or interrupt-driven. It's strongly recommended to use the interrupt-way!
     // Infos: https://forum.espuino.de/t/einsatz-des-port-expanders-pca9555/306
@@ -77,10 +84,10 @@
     // Wake-up button => this also is the interrupt-pin if port-expander is enabled!
     // Please note: only RTC-GPIOs (0, 4, 12, 13, 14, 15, 25, 26, 27, 32, 33, 34, 35, 36, 39, 99) can be used! Set to 99 to DISABLE.
     // Please note #2: this button can be used as interrupt-pin for port-expander. If so, all pins connected to port-expander can wake up ESPuino.
-    #define WAKEUP_BUTTON                   PAUSEPLAY_BUTTON // Defines the button that is used to wake up ESPuino from deepsleep.
+    #define WAKEUP_BUTTON                   PREVIOUS_BUTTON // Defines the button that is used to wake up ESPuino from deepsleep.
 
     // Power-control
-    #define POWER                           19          // GPIO used to drive transistor-circuit, that switches off peripheral devices while ESP32-deepsleep
+    #define POWER                           99          // GPIO used to drive transistor-circuit, that switches off peripheral devices while ESP32-deepsleep
     #ifdef POWER
         //#define INVERT_POWER                          // If enabled, use inverted logic for POWER circuit, that means peripherals are turned off by writing HIGH
     #endif
@@ -98,7 +105,7 @@
 
     // (optional) Monitoring of battery-voltage via ADC
     #ifdef MEASURE_BATTERY_VOLTAGE
-        #define VOLTAGE_READ_PIN            33          // GPIO used to monitor battery-voltage. Change to 35 if you're using Lolin D32 or Lolin D32 pro as it's hard-wired there!
+        #define VOLTAGE_READ_PIN            99          // GPIO used to monitor battery-voltage. Change to 35 if you're using Lolin D32 or Lolin D32 pro as it's hard-wired there!
         constexpr float referenceVoltage = 3.30;                  // Voltage between 3.3V and GND-pin at the develboard in battery-mode (disconnect USB!)
         constexpr float offsetVoltage = 0.1;                      // If voltage measured by ESP isn't 100% accurate, you can add an correction-value here
     #endif

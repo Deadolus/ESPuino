@@ -27,6 +27,7 @@
 #include "Web.h"
 #include "Wlan.h"
 #include "revision.h"
+#include "Audio.h"
 
 #include <Wire.h>
 
@@ -59,9 +60,11 @@ uint32_t bootCount = 0;
 ////////////
 
 #if (HAL == 2)
-	#include "AC101.h"
-static TwoWire i2cBusOne = TwoWire(0);
-static AC101 ac(&i2cBusOne);
+int volume=80;
+//#include "AC101.h"
+#include "ES8388.h"
+static ES8388 es;
+Audio audio;
 #endif
 
 // I2C
@@ -166,17 +169,23 @@ void setup() {
 
 // Only used for ESP32-A1S-Audiokit
 #if (HAL == 2)
-	i2cBusOne.begin(IIC_DATA, IIC_CLK, 40000);
-
-	while (not ac.begin()) {
-		Log_Println("AC101 Failed!", LOGLEVEL_ERROR);
+	while (not es.begin(IIC_DATA, IIC_CLK)) {
+		Log_Println("ES8388 Failed!", LOGLEVEL_ERROR);
 		delay(1000);
 	}
-	Log_Println("AC101 via I2C - OK!", LOGLEVEL_NOTICE);
+	Log_Println("ES8388 via I2C - OK!", LOGLEVEL_NOTICE);
 
 	pinMode(22, OUTPUT);
 	digitalWrite(22, HIGH);
-	ac.SetVolumeHeadphone(80);
+
+    es.volume(ES8388::ES_MAIN, volume);
+    es.volume(ES8388::ES_OUT1, volume);
+    es.volume(ES8388::ES_OUT2, volume);
+    es.mute(ES8388::ES_OUT1, false);
+    es.mute(ES8388::ES_OUT2, false);
+    es.mute(ES8388::ES_MAIN, false);
+    audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT, I2S_MCLK);
+    audio.setVolume(21); // 0...21
 #endif
 
 	// Needs power first
@@ -243,6 +252,7 @@ void setup() {
 }
 
 void loop() {
+	audio.loop();
 	if (OPMODE_BLUETOOTH_SINK == System_GetOperationMode()) {
 		// bluetooth speaker mode
 		Bluetooth_Cyclic();
