@@ -139,6 +139,14 @@ void setup() {
 
 // Init 2nd i2c-bus if RC522 is used with i2c or if port-expander is enabled
 #ifdef I2C_2_ENABLE
+	pinMode(ext_IIC_CLK, OUTPUT_OPEN_DRAIN);
+	pinMode(ext_IIC_DATA, OUTPUT_OPEN_DRAIN);
+    digitalWrite(ext_IIC_DATA, LOW);
+  	delayMicroseconds(5);
+  	digitalWrite(ext_IIC_CLK, HIGH);
+  	delayMicroseconds(2);
+  	digitalWrite(ext_IIC_DATA, HIGH);
+  	delayMicroseconds(2);
 	i2cBusTwo.begin(ext_IIC_DATA, ext_IIC_CLK);
 	delay(50);
 	Log_Println(rfidScannerReady, LOGLEVEL_DEBUG);
