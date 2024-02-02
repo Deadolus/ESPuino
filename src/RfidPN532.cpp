@@ -65,7 +65,7 @@
 			xTaskCreatePinnedToCore(
 					Rfid_Task, /* Function to implement the task */
 					"rfid", /* Name of the task */
-					1536, /* Stack size in words */
+					2048, /* Stack size in words */
 					NULL, /* Task input parameter */
 					2 | portPRIVILEGE_BIT, /* Priority of the task */
 					&rfidTaskHandle, /* Task handle. */
@@ -92,7 +92,6 @@
 
             vTaskDelay(interval / portTICK_RATE_MS);
 
-			byte cardId[cardIdSize];
 
 			#ifdef PAUSE_WHEN_RFID_REMOVED
 				bool sameCardReapplied = false;
