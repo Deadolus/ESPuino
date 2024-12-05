@@ -260,11 +260,11 @@ It's not just simply playing music; different playback modes are supported:
 - `Audiobook`=> single file or playlist/folder; last play position (file and playlist) is saved
   (when pushing pause or moving to another track) and reused next time
 - `Audiobook (loop)` => same as audiobook but loops forever
-- `Folder/playlist (alph. sorted)` => plays all tracks in alph. order from a folder one time
+- `Folder/playlist (sorted)` => plays all tracks in order from a folder one time
 - `Folder/playlist (random order)` => plays all tracks in random order from a folder one time
-- `Folder/playlist (alph. sorted)` => plays all tracks in alph. order from a folder forever
+- `Folder/playlist (sorted)` => plays all tracks in order from a folder forever
 - `Folder/playlist (random order)` => plays all tracks in random order from a folder forever
-- `All tracks of a random subdirectory (sorted alph.)` => plays of tracks in alph. order of a
+- `All tracks of a random subdirectory (sorted)` => plays of tracks in order of a
   randomly picked subdirectory of a given directory
 - `All tracks of a random subdirectory (random order)` => plays all tracks in random order of a
   randomly picked subdirectory of a given directory
@@ -372,6 +372,12 @@ Most designs use a Neopixel ring, but a linear strip is also possible.
   `MEASURE_BATTERY_VOLTAGE` is active)
 - **Previous** (long; keep pressed) + **Next** (short) + release (both): toggle WiFi
   enabled/disabled
+
+#### Virtual RFID cards
+
+Any of the button actions can also be assigned to virtual RFID cards.
+Those cards then can be assigned on the web GUI like normal cards.
+To select a virtual RFID card, just press the configured button action, the virtual RFID automatically gets filled in in the web GUI.
 
 ### Music playback
 
