@@ -10,7 +10,7 @@ info:
 servers:
   - url: /
     description: Local Device
-  - url: 'http://espuino.local/'
+  - url: 'http://minibox.local/'
     description: Development ESPuino
 paths:
   /explorer:
