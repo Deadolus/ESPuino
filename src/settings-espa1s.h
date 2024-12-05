@@ -67,13 +67,13 @@
     //#define BUTTON_4                        18          // Button 4: unnamed optional button
     //#define BUTTON_5                        5           // Button 5: unnamed optional button
     #define NEXT_BUTTON                     19          // Button 0: GPIO to detect next
-    #define PREVIOUS_BUTTON                 13          // Button 1: GPIO to detect previous
-    #define PAUSEPLAY_BUTTON                36          // Button 2: GPIO to detect pause/play
-    #define ROTARYENCODER_BUTTON            23          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
-    #define BUTTON_4                        99          // 18Button 4: unnamed optional button
-    #define BUTTON_5                        99           // 5Button 5: unnamed optional button
+    #define PREVIOUS_BUTTON                 23          // Button 1: GPIO to detect previous
+    #define PAUSEPLAY_BUTTON                13          // Button 2: GPIO to detect pause/play
+    #define ROTARYENCODER_BUTTON            99          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
+    #define BUTTON_4                        36          // 18Button 4: unnamed optional button
+    #define BUTTON_5                        4           // 5Button 5: unnamed optional button
 
-    #define BUTTONS_LED                   22         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
+    #define BUTTONS_LED                   99         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
 
     // Channels of port-expander can be read cyclic or interrupt-driven. It's strongly recommended to use the interrupt-way!
     // Infos: https://forum.espuino.de/t/einsatz-des-port-expanders-pca9555/306
@@ -88,14 +88,14 @@
     #define WAKEUP_BUTTON                   PAUSEPLAY_BUTTON // Defines the button that is used to wake up ESPuino from deepsleep.
 
     // Power-control
-    #define POWER                           99          // GPIO used to drive transistor-circuit, that switches off peripheral devices while ESP32-deepsleep
+    #define POWER                           12          // GPIO used to drive transistor-circuit, that switches off peripheral devices while ESP32-deepsleep
     #ifdef POWER
         //#define INVERT_POWER                          // If enabled, use inverted logic for POWER circuit, that means peripherals are turned off by writing HIGH
     #endif
 
     // (optional) Neopixel
     #if defined(NEOPIXEL_ENABLE)
-        #define LED_PIN                     23          // GPIO for Neopixel-signaling
+        #define LED_PIN                     22          // GPIO for Neopixel-signaling
     #endif
 
     // (optinal) Headphone-detection

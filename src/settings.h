@@ -36,7 +36,7 @@
 	#define MDNS_ENABLE                     // When enabled, you don't have to handle with ESPuino's IP-address. If hostname is set to "ESPuino", you can reach it via ESPuino.local
 	//#define MQTT_ENABLE                   // Make sure to configure mqtt-server and (optionally) username+pwd
 	#define FTP_ENABLE                      // Enables FTP-server; DON'T FORGET TO ACTIVATE AFTER BOOT BY PRESSING PAUSE + NEXT-BUTTONS (IN PARALLEL)!
-    //#define NEOPIXEL_ENABLE                 // Don't forget configuration of NUM_LEDS if enabled
+    #define NEOPIXEL_ENABLE                 // Don't forget configuration of NUM_LEDS if enabled
 	//#define NEOPIXEL_REVERSE_ROTATION     // Some Neopixels are adressed/soldered counter-clockwise. This can be configured here.
 	#define LANGUAGE DE                     // DE = deutsch; EN = english
 	//#define STATIC_IP_ENABLE              // DEPRECATED: Enables static IP-configuration (change static ip-section accordingly)
@@ -54,8 +54,8 @@
 	//#define PAUSE_WHEN_RFID_REMOVED       // Playback starts when card is applied and pauses automatically, when card is removed (https://forum.espuino.de/t/neues-feature-pausieren-wenn-rfid-karte-entfernt-wurde/541)
 	//#define PAUSE_ON_MIN_VOLUME           // When playback is active and volume is changed to zero, playback is paused automatically. Playback is continued if volume reaches 1. (https://forum.espuino.de/t/neues-feature-pausieren-wenn-rfid-karte-entfernt-wurde/541)
 	//#define DONT_ACCEPT_SAME_RFID_TWICE   // RFID-reader doesn't accept the same RFID-tag twice in a row (unless it's a modification-card or RFID-tag is unknown in NVS). Flag will be ignored silently if PAUSE_WHEN_RFID_REMOVED is active. (https://forum.espuino.de/t/neues-feature-dont-accept-same-rfid-twice/1247)
-	//#define SAVE_PLAYPOS_BEFORE_SHUTDOWN  // When playback is active and mode audiobook was selected, last play-position is saved automatically when shutdown is initiated
-	//#define SAVE_PLAYPOS_WHEN_RFID_CHANGE // When playback is active and mode audiobook was selected, last play-position is saved automatically for old playlist when new RFID-tag is applied
+	#define SAVE_PLAYPOS_BEFORE_SHUTDOWN  // When playback is active and mode audiobook was selected, last play-position is saved automatically when shutdown is initiated
+	#define SAVE_PLAYPOS_WHEN_RFID_CHANGE // When playback is active and mode audiobook was selected, last play-position is saved automatically for old playlist when new RFID-tag is applied
 	//#define HALLEFFECT_SENSOR_ENABLE      // Support for hallsensor. For fine-tuning please adjust HallEffectSensor.h Please note: only user-support provided (https://forum.espuino.de/t/magnetische-hockey-tags/1449/35)
 	#define VOLUMECURVE 0 					// 0=square, 1=logarithmic (1 is more flatten at lower volume)
 
@@ -122,17 +122,17 @@
 		If you don't want to assign an action or you don't use a given button: CMD_NOTHING has to be set
 	*/
 	// *****BUTTON*****        *****ACTION*****
-	#define BUTTON_0_SHORT    CMD_NEXTTRACK
-	#define BUTTON_1_SHORT    CMD_PREVTRACK
+	#define BUTTON_0_SHORT    CMD_SEEK_FORWARDS
+	#define BUTTON_1_SHORT    CMD_SEEK_BACKWARDS
 	#define BUTTON_2_SHORT    CMD_PLAYPAUSE
-	#define BUTTON_3_SHORT    CMD_MEASUREBATTERY
-	#define BUTTON_4_SHORT    CMD_SEEK_BACKWARDS
-	#define BUTTON_5_SHORT    CMD_SEEK_FORWARDS
+	#define BUTTON_3_SHORT    CMD_NOTHING
+	#define BUTTON_4_SHORT    CMD_VOLUMEUP
+	#define BUTTON_5_SHORT    CMD_VOLUMEDOWN
 
-	#define BUTTON_0_LONG     CMD_SEEK_FORWARDS
-	#define BUTTON_1_LONG     CMD_SEEK_BACKWARDS
-	#define BUTTON_2_LONG     CMD_PLAYPAUSE
-	#define BUTTON_3_LONG     CMD_SLEEPMODE
+	#define BUTTON_0_LONG     CMD_NEXTTRACK
+	#define BUTTON_1_LONG     CMD_PREVTRACK
+	#define BUTTON_2_LONG     CMD_SLEEPMODE
+	#define BUTTON_3_LONG     CMD_NOTHING
 	#define BUTTON_4_LONG     CMD_VOLUMEUP
 	#define BUTTON_5_LONG     CMD_VOLUMEDOWN
 
@@ -142,7 +142,7 @@
 	#define BUTTON_MULTI_04   CMD_NOTHING
 	#define BUTTON_MULTI_05   CMD_NOTHING
 	#define BUTTON_MULTI_12   CMD_TELL_IP_ADDRESS
-	#define BUTTON_MULTI_13   CMD_VOLUMEDOWN
+	#define BUTTON_MULTI_13   CMD_NOTHING
 	#define BUTTON_MULTI_14   CMD_TOGGLE_BLUETOOTH_SINK_MODE
 	#define BUTTON_MULTI_15   CMD_TOGGLE_BLUETOOTH_SOURCE_MODE
 	#define BUTTON_MULTI_23   CMD_NOTHING
@@ -174,7 +174,7 @@
 	// Buttons active state: Default 0 for active LOW, 1 for active HIGH e.g. for TTP223 Capacitive Touch Switch Button (FinnBox)
 	#define BUTTON_0_ACTIVE_STATE 0
 	#define BUTTON_1_ACTIVE_STATE 0
-	#define BUTTON_2_ACTIVE_STATE 0
+	#define BUTTON_2_ACTIVE_STATE 1
 	#define BUTTON_3_ACTIVE_STATE 0
 	#define BUTTON_4_ACTIVE_STATE 0
 	#define BUTTON_5_ACTIVE_STATE 0

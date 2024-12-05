@@ -309,6 +309,7 @@ void Button_DoButtonActions(void) {
 				if (gButtons[i].lastReleasedTimestamp > gButtons[i].lastPressedTimestamp) { // short action
 					if (gButtons[i].lastReleasedTimestamp - gButtons[i].lastPressedTimestamp < intervalToLongPress) {
 						Cmd_Action(Cmd_Short);
+						Log_Printf(LOGLEVEL_ERROR, "Button pressed %d", i);
 					} else {
 						// sleep-mode should only be triggered on release, otherwise it will wake it up directly again
 						if (Cmd_Long == CMD_SLEEPMODE) {

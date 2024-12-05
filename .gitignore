@@ -15,3 +15,6 @@ sdkconfig.*
 src/settings-override.h
 src/settings-custom-override.h
 node_modules/
+build
+tags
+tags
