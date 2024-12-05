@@ -50,6 +50,7 @@
             if (!versiondata) {
                 Serial.print("Didn't Find PN53x Module HALT!!!");
 
+        		System_RequestSleep();
                 while (1); // Halt
             }
 

@@ -174,9 +174,16 @@ void setup() {
 
 // Only used for ESP32-A1S-Audiokit
 #if (HAL == 2)
+	{
+	int tries = 0;
 	while (not es.begin(IIC_DATA, IIC_CLK)) {
+		tries++;
 		Log_Println("ES8388 Failed!", LOGLEVEL_ERROR);
 		delay(1000);
+		if(tries == 10) {
+			System_RequestSleep();
+		}
+	}
 	}
 	Log_Println("ES8388 via I2C - OK!", LOGLEVEL_NOTICE);
 
