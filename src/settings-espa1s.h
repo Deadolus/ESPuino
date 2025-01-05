@@ -42,9 +42,9 @@
     // bluetooth support seems to be too large for this HAL -> disable it for now
     // fix linker error "region 'iram0_0_seg' overflowed by xxx bytes"
     // https://forum.espuino.de/t/aktueller-stand-esp32-arduino-2/1389/218
-    #ifdef BLUETOOTH_ENABLE
-        #undef BLUETOOTH_ENABLE
-    #endif
+//    #ifdef BLUETOOTH_ENABLE
+//        #undef BLUETOOTH_ENABLE
+//    #endif
 
     // I2S (DAC)
     #define I2S_DOUT                        26          // Digital out (I2S)
