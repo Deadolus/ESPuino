@@ -133,8 +133,8 @@
 	#define BUTTON_1_LONG     CMD_NEXTTRACK
 	#define BUTTON_2_LONG     CMD_SLEEPMODE
 	#define BUTTON_3_LONG     CMD_NOTHING
-	#define BUTTON_4_LONG     CMD_VOLUMEUP
-	#define BUTTON_5_LONG     CMD_VOLUMEDOWN
+	#define BUTTON_4_LONG     CMD_VOLUMEDOWN
+	#define BUTTON_5_LONG     CMD_VOLUMEUP
 
 	#define BUTTON_MULTI_01   CMD_NOTHING   //CMD_TOGGLE_WIFI_STATUS (disabled now to prevent children from unwanted WiFi-disable)
 	#define BUTTON_MULTI_02   CMD_TOGGLE_BLUETOOTH_SINK_MODE
