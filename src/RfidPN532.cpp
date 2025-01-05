@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "settings.h"
 #include "Rfid.h"
+#include "Power.h"
 #include "Log.h"
 #include "MemX.h"
 #include "Queues.h"
@@ -50,6 +51,7 @@
             if (!versiondata) {
                 Serial.print("Didn't Find PN53x Module HALT!!!");
 
+				Power_PeripheralOff();
         		System_RequestSleep();
                 while (1); // Halt
             }
