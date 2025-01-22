@@ -10,8 +10,8 @@ info:
 servers:
   - url: /
     description: Local Device
-  - url: 'http://minibox.local/'
-    description: Development ESPuino
+  - url: 'http://espuino.local/'
+    description: Box Espuino Musikbox
 paths:
   /explorer:
     get:
