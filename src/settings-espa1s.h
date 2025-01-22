@@ -36,7 +36,7 @@
     // I2C-configuration (necessary for RC522 [only via i2c - not spi!] or port-expander)
     #ifdef I2C_2_ENABLE
         #define ext_IIC_CLK                 18          // i2c-SCL (clock) [14 pin-header]
-        #define ext_IIC_DATA                5          // i2c-SDA (data) [14 pin-header]
+        #define ext_IIC_DATA                23          // i2c-SDA (data) [14 pin-header]
     #endif
 
     // bluetooth support seems to be too large for this HAL -> disable it for now
@@ -73,13 +73,14 @@
     //#define ROTARYENCODER_BUTTON            19          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
     //#define BUTTON_4                        18          // Button 4: unnamed optional button
     //#define BUTTON_5                        5           // Button 5: unnamed optional button
-    #define NEXT_BUTTON                     19          // Button 0: GPIO to detect next
-    #define PREVIOUS_BUTTON                 23          // Button 1: GPIO to detect previous
-    #define PAUSEPLAY_BUTTON                13          // Button 2: GPIO to detect pause/play
+    #define NEXT_BUTTON                     13          // Button 0: GPIO to detect next
+    #define PREVIOUS_BUTTON                 12          // Button 1: GPIO to detect previous
+    #define PAUSEPLAY_BUTTON                36          // Button 2: GPIO to detect pause/play
     #define ROTARYENCODER_BUTTON            99          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
-    #define BUTTON_4                        36          // 18Button 4: unnamed optional button
-    #define BUTTON_5                        4           // 5Button 5: unnamed optional button
+    #define BUTTON_4                        19          // 18Button 4: unnamed optional button
+    #define BUTTON_5                        5           // 5Button 5: unnamed optional button
 
+//36
     #define BUTTONS_LED                   99         // Powers the LEDs of the buttons. Make sure the current consumed by the LEDs can be handled by the used GPIO
 
     // Channels of port-expander can be read cyclic or interrupt-driven. It's strongly recommended to use the interrupt-way!

@@ -174,7 +174,7 @@
 	// Buttons active state: Default 0 for active LOW, 1 for active HIGH e.g. for TTP223 Capacitive Touch Switch Button (FinnBox)
 	#define BUTTON_0_ACTIVE_STATE 0
 	#define BUTTON_1_ACTIVE_STATE 0
-	#define BUTTON_2_ACTIVE_STATE 1
+	#define BUTTON_2_ACTIVE_STATE 0
 	#define BUTTON_3_ACTIVE_STATE 0
 	#define BUTTON_4_ACTIVE_STATE 0
 	#define BUTTON_5_ACTIVE_STATE 0
